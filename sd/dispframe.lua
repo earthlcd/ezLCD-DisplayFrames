@@ -15,16 +15,16 @@ function Render_Title()
 end
 
 function MainFunction()
-	local use_frames = 0
-	-- if use_frames == 1 then
-	-- 	ez.SetDrawFrame(1)
-	-- 	ez.SetDispFrame(2, 1)
+	local use_frames = 1
+	if use_frames == 1 then
+		ez.SetDrawFrame(1)
+		ez.SetDispFrame(2, 1)
 
-	-- 	Render_Title()
+		Render_Title()
 
-	-- 	ez.SetDrawFrame(2)
-	-- 	ez.SetDispFrame(1, 1)
-	-- end
+		ez.SetDrawFrame(2)
+		ez.SetDispFrame(1, 1)
+	end
 
 	Render_Title()
 
@@ -45,17 +45,17 @@ function MainFunction()
 	local y2 = size
 	while (1) do
 
-		-- if use_frames == 1 then
-		-- 	if frame == 1 then
-		-- 		ez.SetDrawFrame(1)
-		-- 		ez.SetDispFrame(2, 1)
-		-- 		frame = 2
-		-- 	else
-		-- 		ez.SetDrawFrame(2)
-		-- 		ez.SetDispFrame(1, 1)
-		-- 		frame = 1
-		-- 	end
-		-- end
+		if use_frames == 1 then
+			if frame == 1 then
+				ez.SetDrawFrame(1)
+				ez.SetDispFrame(2, 1)
+				frame = 2
+			else
+				ez.SetDrawFrame(2)
+				ez.SetDispFrame(1, 1)
+				frame = 1
+			end
+		end
 
 		x = x + xdir
 		y = y + ydir
@@ -66,11 +66,12 @@ function MainFunction()
 			ydir = ydir * -1
 		end
 
-		ez.BoxFill(0,40, 320,60, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color
+		ez.Cls(ez.RGB(0, 0, 0))
+		-- ez.BoxFill(0,40, 320,60, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color
 		ez.SetXY(0,40)
 		ez.SetColor(ez.RGB(255,255,0))
 		-- print(string.format("x=%03d y=%03d", x, y))
-		print(string.format("x1=%03d y1=%03d x2=%03d y2=%03d", x1, y1, x2, y2))
+		print(string.format("%d x1=%03d y1=%03d x2=%03d y2=%03d", frame, x1, y1, x2, y2))
 
 		-- -- Erase Box
 		-- ez.BoxFill(x1,y1, x2,y2, ez.RGB(255, 0, 0)) -- X1, Y1, X2, Y2, Color  **** UNCOMMENT OUT THIS LINE TO BREAK PROGRAM ****
@@ -79,7 +80,7 @@ function MainFunction()
 		y1 = y
 		y2 = y+size
 		-- Draw Box
-		ez.BoxFill(x1-1,y1-1, x2+1,y2+1, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color
+		-- ez.BoxFill(x1-1,y1-1, x2+1,y2+1, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color
 		ez.BoxFill(x1,y1, x2,y2, ez.RGB(255, 255, 255)) -- X1, Y1, X2, Y2, Color
 
 
