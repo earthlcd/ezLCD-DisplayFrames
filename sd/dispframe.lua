@@ -8,7 +8,7 @@
 function Render_Title()
 	ez.Cls(ez.RGB(0, 0, 0))
 	ez.BoxFill(0, 0, ez.Width, 40, ez.RGB(64,64,64)) -- X1, Y1, X2, Y2, Color
-	ez.SetFtFont(6,18,18)
+	ez.SetFtFont(1,18,18)
 	ez.SetColor(ez.RGB(255,255,255))
 	ez.SetXY(0,9)
 	print(string.format("   EarthLCD Display Frames"))
@@ -66,21 +66,24 @@ function MainFunction()
 			ydir = ydir * -1
 		end
 
+		ez.BoxFill(0,40, 320,60, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color
+		ez.SetXY(0,40)
+		ez.SetColor(ez.RGB(255,255,0))
+		-- print(string.format("x=%03d y=%03d", x, y))
+		print(string.format("x1=%03d y1=%03d x2=%03d y2=%03d", x1, y1, x2, y2))
+
 		-- -- Erase Box
-		-- ez.BoxFill(x1,y1, x2,y2, ez.RGB(30, 30, 30)) -- X1, Y1, X2, Y2, Color
+		-- ez.BoxFill(x1,y1, x2,y2, ez.RGB(255, 0, 0)) -- X1, Y1, X2, Y2, Color  **** UNCOMMENT OUT THIS LINE TO BREAK PROGRAM ****
 		x1 = x
 		x2 = x+size
 		y1 = y
 		y2 = y+size
 		-- Draw Box
+		ez.BoxFill(x1-1,y1-1, x2+1,y2+1, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color
 		ez.BoxFill(x1,y1, x2,y2, ez.RGB(255, 255, 255)) -- X1, Y1, X2, Y2, Color
 
-		ez.BoxFill(0,40, 150,60, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color
-		ez.SetXY(0,40)
-		ez.SetColor(ez.RGB(255,255,0))
-		print(string.format("x=%03d y=%03d", x, y))
 
-		ez.Wait_ms(100)
+		-- ez.Wait_ms(10)
 	end
 
 end
