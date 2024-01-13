@@ -28,10 +28,6 @@ function MainFunction()
 
 	Render_Title()
 
-	-- print(string.format("%d %d %d %d %d ", ez.GetDispFrame(0), ez.GetDispFrame(1), ez.GetLayerVisibility(0), ez.GetLayerVisibility(1), ez.GetDrawFrame(), ez.GetNoOfFrames()))
-	-- print(string.format("%d %d  ", ez.GetDrawFrame(), ez.GetNoOfFrames()))
-	--print(string.format("%d %d ", ez.GetDispFrame(0), ez.GetDispFrame(1)))
-
 	local frame = 1;
 	local size = 10
 	local x = ez.Width / 2
@@ -66,8 +62,9 @@ function MainFunction()
 			ydir = ydir * -1
 		end
 
-		ez.Cls(ez.RGB(0, 0, 0))
-		-- ez.BoxFill(0,40, 320,60, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color
+		ez.Cls(ez.RGB(0, 0, 0)) -- erase the whole screen beforfe we start drawing
+
+		-- ez.BoxFill(0,40, 320,60, ez.RGB(0, 0, 0)) -- X1, Y1, X2, Y2, Color  **** UNCOMMENT OUT THIS LINE TO BREAK PROGRAM ****
 		ez.SetXY(0,40)
 		ez.SetColor(ez.RGB(255,255,0))
 		-- print(string.format("x=%03d y=%03d", x, y))
